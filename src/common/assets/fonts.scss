@@ -1,0 +1,68 @@
+@font-face {
+  font-family: 'digital';
+  src: url('font-digital/digital-7-webfont.woff2') format('woff2'),
+  url('font-digital/digital-7-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'digital-x';
+  src: url('font-digital/digitalix-webfont.woff2') format('woff2'),
+  url('font-digital/digitalix-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+/*
+@font-face {
+  font-family: 'geosanslight';
+  src: url('fonts/geosanslight.woff2') format('woff2'),
+  url('fonts/geosanslight.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'computer_robot';
+  src: url('fonts/computer_robot.woff2') format('woff2'),
+  url('fonts/computer_robot.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'led_display';
+  src: url('fonts/led_display.woff2') format('woff2'),
+  url('fonts/led_display.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'lobster';
+  src: url('fonts/lobster.woff2') format('woff2'),
+  url('fonts/lobster.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'pokemon';
+  src: url('fonts/pokemon.woff2') format('woff2'),
+  url('fonts/pokemon.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+#parameterPopup {
+  li.digital      { font-family : digital; }
+  li.geosanslight { font-family : geosanslight; }
+
+  li.clock_digital-x          { font-family : digital-x; }
+  li.clock_computer_robot     { font-family : computer_robot; font-size : 25px; }
+  li.clock_led_display        { font-family : led_display; }
+  li.clock_pokemon            { font-family : pokemon; }
+}
+*/

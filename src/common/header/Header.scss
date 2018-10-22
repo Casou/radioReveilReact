@@ -1,0 +1,36 @@
+header .alarmNotif {
+  font-size : 23px;
+
+  img {
+    margin-right : 10px;
+    height : 18px;
+    vertical-align: middle;
+  }
+
+  .alarmTime {
+    vertical-align: middle;
+  }
+
+  .alarmDays {
+    vertical-align: middle;
+
+    .day {
+      display : inline-block;
+      border-radius : 3px;
+      border : 1px solid grey;
+      background-color : black;
+      margin : 0 2px;
+      vertical-align: middle;
+      font-size : 12px;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+
+      &.selected {
+        background-color : white;
+        color : black;
+      }
+    }
+  }
+}

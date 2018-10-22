@@ -1,0 +1,84 @@
+#digitalClockLayout {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  line-height: 200px;
+  text-align: center; /* centrage horizontal */
+
+}
+
+section.digital-x {
+
+  #digitalClockLayout {
+    font-family: digital-x;
+  }
+
+  #digitalClock {
+    height: 165px;
+    width: 595px; /* Un peu moins que la largeur totale pour ne pas centrer les secondes */
+    vertical-align: bottom;
+    display: inline-block;
+    line-height: 1; /* on rétablit le line-height */
+    text-align: left; /* ... et l'alignement du texte */
+  }
+
+  #digitalClock .date {
+    margin-bottom: 10px;
+    font-size: 26px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 grey;
+  }
+
+  #digitalClock .timer {
+    font-size: 130px;
+    text-shadow: 4px 4px 0 grey;
+  }
+
+  #digitalClock .timer .second {
+    color: grey;
+    font-size: 50px;
+    vertical-align: top;
+    text-shadow: none;
+  }
+
+}
+
+/*
+body.clock_led_display {
+
+  #digitalClockLayout {
+    font-family: led_display;
+  }
+
+  #digitalClock {
+    height: 165px;
+    width: 420px; // Un peu moins que la largeur totale pour ne pas centrer les secondes
+    vertical-align: bottom;
+    display: inline-block;
+    line-height: 1; // on rétablit le line-height
+    text-align: left; // ... et l'alignement du texte
+    margin-top: 40px;
+  }
+
+  #digitalClock .date {
+    margin-bottom: 10px;
+    font-size: 26px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 0 grey;
+  }
+
+  #digitalClock .timer {
+    font-size: 130px;
+    text-shadow: 4px 4px 0 grey;
+  }
+
+  #digitalClock .timer .second {
+    color: grey;
+    font-size: 50px;
+    vertical-align: top;
+    text-shadow: none;
+  }
+
+}
+*/
+
