@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {JOURS_COMPLETS, JOURS_COURTS, lpadTime, MOIS_COMPLETS, MOIS_COURTS, getSectionHeight} from '../../common/util/common';
+import {JOURS_COMPLETS, JOURS_COURTS, lpad10, MOIS_COMPLETS, MOIS_COURTS, getSectionHeight} from '../../common/util/common';
 
 import './clock.scss';
 
@@ -25,7 +25,7 @@ class Clock extends React.Component {
         const chaine_jour = this.props.displayFullDays ? JOURS_COMPLETS : JOURS_COURTS;
         const jour_semaine = chaine_jour[date.getDay()].removeAccents();
 
-        const jour = lpadTime(date.getDate());
+        const jour = lpad10(date.getDate());
 
         const chaine_mois = this.props.displayFullMonth ? MOIS_COMPLETS : MOIS_COURTS;
         const mois = chaine_mois[date.getMonth()].removeAccents();
@@ -50,10 +50,10 @@ class Clock extends React.Component {
                         <div className="date">{ this.formatDate(date) }</div>
                         <div className="timer">
                             <span className="mainTimer">
-                                { lpadTime(date.getHours()) }:{ lpadTime(date.getMinutes()) }
+                                { lpad10(date.getHours()) }:{ lpad10(date.getMinutes()) }
                             </span>
                             <span className="second">
-                                { lpadTime(date.getSeconds()) }
+                                { lpad10(date.getSeconds()) }
                             </span>
                         </div>
                     </div>

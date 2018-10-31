@@ -13,13 +13,11 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [{
-                    loader: "style-loader"
-                }, {
-                    loader: "css-loader"
-                }, {
-                    loader: "sass-loader"
-                }]
+                use: [
+                    { loader: "style-loader" },
+                    { loader: "css-loader" },
+                    { loader: "sass-loader" }
+                ]
             },
             {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
@@ -30,17 +28,29 @@ module.exports = {
                         outputPath: 'fonts/'
                     }
                 }]
-            },
+            },{
+                test: /\.(jpe?g|png|gif|svg|ico)$/i,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'images/'
+                    }
+                }]
+            }
+            /*
             {
                 test: /\.(png|jp(e*)g|svg|gif)$/,
                 use: [{
                     loader: 'url-loader',
                     options: {
                         limit: 8000, // Convert images < 8kb to base64 strings
-                        name: 'images/[hash]-[name].[ext]'
+                        name: '[path][name].[ext]',
+                        outputPath: 'images/'
                     }
                 }]
             }
+            */
         ]
     },
     resolve: {
@@ -51,7 +61,7 @@ module.exports = {
         }
     },
     output: {
-        path: __dirname + '/dist',
+        path: path.join(__dirname, 'dist/'),
         publicPath: '/',
         filename: 'bundle.js'
     },
@@ -61,6 +71,10 @@ module.exports = {
     ],
     devServer: {
         contentBase: './dist',
-        hot: true
+        hot: true,
+        port: 9999,
+        headers: {
+            "Access-Control-Allow-Origin": "*"
+        }
     }
 };
