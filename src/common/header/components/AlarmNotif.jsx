@@ -8,7 +8,7 @@ const AlarmNotif = (props) => {
         <div className={"alarmNotif"}>
             <div className={"alarmTime"}></div>
             <div className={"alarmDays"}>
-            { DAYS.map(d => <span className={"day"}>{ d }</span>) }
+            { DAYS.map((d, idx) => <span className={"day"} key={"alarmNotifDay_" + idx}>{ d }</span>) }
             </div>
         </div>);
 };

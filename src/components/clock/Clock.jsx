@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {JOURS_COMPLETS, JOURS_COURTS, lpadTime, MOIS_COMPLETS, MOIS_COURTS} from '../../common/util/common';
+import {JOURS_COMPLETS, JOURS_COURTS, lpadTime, MOIS_COMPLETS, MOIS_COURTS, getSectionHeight} from '../../common/util/common';
 
 import './clock.scss';
 
@@ -15,6 +15,10 @@ class Clock extends React.Component {
 
         this.incrementTime = this.incrementTime.bind(this);
         this.interval = setInterval(this.incrementTime, 1000);
+    }
+
+    componentDidMount() {
+        document.getElementById("clock").style.height = getSectionHeight("clock") + "px";
     }
 
     formatDate(date) {
