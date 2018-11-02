@@ -34,11 +34,11 @@ const WeatherTable = (props) => {
                 </tr>
                 <tr className={"weatherTable__day"}>
                     <th className={"weatherTable__main_hour"}>{ secondDayData.shortDate }</th>
-                    <td className={"weatherTable__main_hour"}>1</td>
-                    <td className={"weatherTable__main_hour"}>1</td>
-                    <td className={"weatherTable__optional_hour"}>1</td>
-                    <td className={"weatherTable__main_hour"}>1</td>
-                    <td className={"weatherTable__optional_hour"}>1</td>
+                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={secondDayData.data} hour={9} /></td>
+                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={secondDayData.data} hour={12} /></td>
+                    <td className={"weatherTable__optional_hour"}><WeatherIcon dayData={secondDayData.data} hour={15} /></td>
+                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={secondDayData.data} hour={18} /></td>
+                    <td className={"weatherTable__optional_hour"}><WeatherIcon dayData={secondDayData.data} hour={21} /></td>
                 </tr>
             </tbody>
         </table>

@@ -18,7 +18,7 @@ class Clock extends React.Component {
     }
 
     componentDidMount() {
-        document.getElementById("clock").style.height = getSectionHeight("clock") + "px";
+        // document.getElementById("clock").style.height = getSectionHeight("clock") + "px";
     }
 
     formatDate(date) {

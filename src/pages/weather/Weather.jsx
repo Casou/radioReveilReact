@@ -19,7 +19,7 @@ class Weather extends React.Component {
     }
 
     componentDidMount() {
-        document.getElementById("weather").style.height = getSectionHeight("weather") + "px";
+        // document.getElementById("weather").style.height = getSectionHeight("weather") + "px";
         this.props.getWeatherDataAction.getWeatherData();
     }
 

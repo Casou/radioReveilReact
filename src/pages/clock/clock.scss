@@ -1,14 +1,15 @@
 section#clock {
-  height: 250px; // mis à jour en javasciprt
+  // height: 250px; // mis à jour en javasciprt
+  margin : 40px;
 }
 
 #digitalClockLayout {
   width: 100%;
   height: 100%;
-  display: inline-block;
   line-height: 200px;
-  text-align: center; /* centrage horizontal */
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 section.digital-x {
@@ -18,29 +19,24 @@ section.digital-x {
   }
 
   #digitalClock {
-    height: 165px;
-    width: 595px; /* Un peu moins que la largeur totale pour ne pas centrer les secondes */
-    vertical-align: bottom;
-    display: inline-block;
     line-height: 1; /* on rétablit le line-height */
-    text-align: left; /* ... et l'alignement du texte */
   }
 
   #digitalClock .date {
     margin-bottom: 10px;
-    font-size: 26px;
+    font-size: 1.5vw;
     text-transform: uppercase;
     text-shadow: 2px 2px 0 grey;
   }
 
   #digitalClock .timer {
-    font-size: 130px;
+    font-size: 8vw;
     text-shadow: 4px 4px 0 grey;
   }
 
   #digitalClock .timer .second {
     color: grey;
-    font-size: 50px;
+    font-size: 3vw;
     vertical-align: top;
     text-shadow: none;
   }

@@ -5,6 +5,7 @@ import Clock from "./pages/clock/Clock";
 import './common/assets/index.scss';
 import './common/assets/fonts.scss';
 import Weather from "./pages/weather/Weather";
+import Footer from "./common/footer/Footer";
 
 class App extends React.Component {
 
@@ -14,6 +15,7 @@ class App extends React.Component {
                 <Header/>
                 <Clock />
                 <Weather/>
+                <Footer />
             </main>
         )
     }

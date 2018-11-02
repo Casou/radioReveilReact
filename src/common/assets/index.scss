@@ -37,14 +37,19 @@ body {
   border : 3px grey inset;
 }
 
-
-header,
-#panelCenter1,
-#panelCenter2,
-footer {
-  display : inline-block;
-  width : 100%;
+#app, #app > main {
+  height : 100%;
 }
+
+#app > main {
+  display : flex;
+  flex-direction : column;
+}
+
+#clock { flex : 1; }
+#weather { flex : 1.5; }
+
+
 
 header {
   height : 40px;
@@ -66,5 +71,10 @@ header {
     display : inline-block;
     vertical-align : middle;
   };
+}
+
+footer {
+  height: 100px;
+  line-height: 40px;
 }
 
