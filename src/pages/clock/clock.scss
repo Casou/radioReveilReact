@@ -24,19 +24,19 @@ section.digital-x {
 
   #digitalClock .date {
     margin-bottom: 10px;
-    font-size: 1.5vw;
+    font-size: 4vh;
     text-transform: uppercase;
     text-shadow: 2px 2px 0 grey;
   }
 
   #digitalClock .timer {
-    font-size: 8vw;
+    font-size: 19vh;
     text-shadow: 4px 4px 0 grey;
   }
 
   #digitalClock .timer .second {
     color: grey;
-    font-size: 3vw;
+    font-size: 8vh;
     vertical-align: top;
     text-shadow: none;
   }

@@ -11,7 +11,7 @@ const Header = (props) => {
                 <AlarmNotif />
             </div>
             <div className="right">
-                <div id="version">0.0.7</div>
+                <div id="version">0.1.0</div>
             </div>
         </header>);
 };

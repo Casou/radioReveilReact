@@ -2,7 +2,7 @@
   font-family : Arial, serif;
   font-size : 15px;
   height : 20px;
-  opacity : 0.6;
+  opacity : 0.4;
 }
 
 #weather {
@@ -24,6 +24,12 @@
   table {
     &.collapsed {
       .weatherTable__optional_hour { display : none; }
+
+      tbody {
+        td {
+          width : 33%;
+        }
+      }
     }
 
     width : 100%;

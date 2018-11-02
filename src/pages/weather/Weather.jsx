@@ -41,7 +41,6 @@ class Weather extends React.Component {
 
         return (
             <section id={"weather"}>
-                <WeatherRetrieveTime weatherDatas={weatherDatas} />
                 <div id='weather_data'>
                      {
                         weatherDatas && weatherDatas.dataList.length ?
@@ -52,6 +51,7 @@ class Weather extends React.Component {
                             </div>
                      }
                 </div>
+                <WeatherRetrieveTime weatherDatas={weatherDatas} />
             </section>
         );
     }
