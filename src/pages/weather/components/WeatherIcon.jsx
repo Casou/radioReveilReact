@@ -1,28 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {weatherDayDatasType} from "../propTypes/OpenWeatherMapJsonType";
+import {openWeatherMapDataType} from "../propTypes/OpenWeatherMapJsonType";
 import questionIcon from "images/weather/question.png";
 import cn from "classnames";
+import {parseOpenWeatherDate} from "../../../common/util/date";
 
 const WeatherIcon = ({dayData, hour}) => {
-    const getWeatherIcon = (dayData, hour) => {
-        const hourData = dayData.find(dayData => dayData.hour === hour);
+    const getWeatherIcon = (hourData, hour) => {
         if (!hourData) return undefined;
         const iconName = hourData.weather[0].icon.replace("n", "d");
         return require(`../../../public/images/weather/white/${iconName}.png`);
     };
 
-    const weatherIcon = getWeatherIcon(dayData, hour);
+    const hourData = dayData.find(dayData => dayData.hour === hour);
+
+    const weatherIcon = getWeatherIcon(hourData, hour);
+    const isFuture = hourData && (parseOpenWeatherDate(hourData.dt) > new Date());
 
     return (
-        <div className={ cn("weatherIcon", { "weatherIcon_questionMark" : !weatherIcon }) }>
+        <div className={ cn("weatherIcon",
+            { "weatherIcon_questionMark" : !weatherIcon },
+            { "weatherIcon_past" : !isFuture }) }>
             <img src={ weatherIcon || questionIcon} />
         </div>
     );
 };
 
 WeatherIcon.propTypes = {
-    dayData : PropTypes.instanceOf(weatherDayDatasType).isRequired,
+    dayData : PropTypes.arrayOf(openWeatherMapDataType).isRequired,
     hour : PropTypes.number.isRequired,
 };
 

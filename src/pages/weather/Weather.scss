@@ -35,6 +35,10 @@
       width: 60%;
       height: 60%;
       margin-left : 20%;
+
+      &.weatherIcon_past {
+        opacity : 0.5;
+      }
     }
 
     .weatherIcon img {

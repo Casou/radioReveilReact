@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const openWeatherMapDataType = PropTypes.shape({
+export const openWeatherMapDataType = PropTypes.shape({
     dt: PropTypes.number.isRequired,
     dt_txt: PropTypes.string.isRequired,
     hour: PropTypes.number.isRequired,
