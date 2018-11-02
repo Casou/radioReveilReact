@@ -33,19 +33,47 @@
     .weatherIcon {
       position : relative;
       width: 60%;
-      height: 60%;
+      height: 100%;
       margin-left : 20%;
 
       &.weatherIcon_past {
         opacity : 0.5;
       }
+
+      .weatherIcon_temperature {
+        position : absolute;
+        bottom : 0;
+        left : 0;
+        font-size : 1.3vw;
+
+        &.hotter { color : #ff7221; }
+        &.hot { color : #ffb51a; }
+        &.warm { color : #fff020; }
+        &.cold { color : #71cfff; }
+        &.colder { color : #6289ff; }
+      }
+
+      .weatherIcon_humidity {
+        position : absolute;
+        bottom : 0;
+        right : 0;
+        font-size : 1.3vw;
+
+        &.humidity_80 { color : #334dff; }
+        &.humidity_60 { color : #5975ff; }
+        &.humidity_40 { color : #85adff; }
+        &.humidity_20 { color : #a9d3ff; }
+        &.humidity_0 { color : #ffffff; }
+      }
+
+
     }
 
     .weatherIcon img {
       max-height: 100%;
       max-width: 100%;
       width: auto;
-      height: auto;
+      height: 80%;
       position: absolute;
       top: 0;
       bottom: 0;

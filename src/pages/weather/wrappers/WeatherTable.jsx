@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {weatherDayDatasType} from "../propTypes/OpenWeatherMapJsonType";
 import cn from 'classnames';
-import WeatherIcon from "../components/WeatherIcon";
+import WeatherItem from "../components/WeatherItem";
 
 const WeatherTable = (props) => {
 
@@ -26,19 +26,19 @@ const WeatherTable = (props) => {
             <tbody>
                 <tr className={"weatherTable__day"}>
                     <th className={"weatherTable__main_hour"}>{ firstDayData.shortDate }</th>
-                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={firstDayData.data} hour={9} /></td>
-                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={firstDayData.data} hour={12} /></td>
-                    <td className={"weatherTable__optional_hour"}><WeatherIcon dayData={firstDayData.data} hour={15} /></td>
-                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={firstDayData.data} hour={18} /></td>
-                    <td className={"weatherTable__optional_hour"}><WeatherIcon dayData={firstDayData.data} hour={21} /></td>
+                    <td className={"weatherTable__main_hour"}><WeatherItem dayData={firstDayData.data} hour={9} /></td>
+                    <td className={"weatherTable__main_hour"}><WeatherItem dayData={firstDayData.data} hour={12} /></td>
+                    <td className={"weatherTable__optional_hour"}><WeatherItem dayData={firstDayData.data} hour={15} /></td>
+                    <td className={"weatherTable__main_hour"}><WeatherItem dayData={firstDayData.data} hour={18} /></td>
+                    <td className={"weatherTable__optional_hour"}><WeatherItem dayData={firstDayData.data} hour={21} /></td>
                 </tr>
                 <tr className={"weatherTable__day"}>
                     <th className={"weatherTable__main_hour"}>{ secondDayData.shortDate }</th>
-                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={secondDayData.data} hour={9} /></td>
-                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={secondDayData.data} hour={12} /></td>
-                    <td className={"weatherTable__optional_hour"}><WeatherIcon dayData={secondDayData.data} hour={15} /></td>
-                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={secondDayData.data} hour={18} /></td>
-                    <td className={"weatherTable__optional_hour"}><WeatherIcon dayData={secondDayData.data} hour={21} /></td>
+                    <td className={"weatherTable__main_hour"}><WeatherItem dayData={secondDayData.data} hour={9} /></td>
+                    <td className={"weatherTable__main_hour"}><WeatherItem dayData={secondDayData.data} hour={12} /></td>
+                    <td className={"weatherTable__optional_hour"}><WeatherItem dayData={secondDayData.data} hour={15} /></td>
+                    <td className={"weatherTable__main_hour"}><WeatherItem dayData={secondDayData.data} hour={18} /></td>
+                    <td className={"weatherTable__optional_hour"}><WeatherItem dayData={secondDayData.data} hour={21} /></td>
                 </tr>
             </tbody>
         </table>

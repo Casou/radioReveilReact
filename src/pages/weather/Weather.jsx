@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import loadingGif from "images/loading.gif";
 import weatherTmp from "images/weather/white/10d.png";
-import {getSectionHeight} from "../../common/util/common";
 import {connect} from "react-redux";
 import {assign} from "lodash";
 import GetWeatherDataAction from "./actions/GetWeatherDataAction";
@@ -19,7 +18,6 @@ class Weather extends React.Component {
     }
 
     componentDidMount() {
-        // document.getElementById("weather").style.height = getSectionHeight("weather") + "px";
         this.props.getWeatherDataAction.getWeatherData();
     }
 

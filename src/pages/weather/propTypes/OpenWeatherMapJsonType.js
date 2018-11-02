@@ -29,7 +29,6 @@ export const openWeatherMapJsonType = PropTypes.shape({
     list : PropTypes.arrayOf(openWeatherMapDataType),
 });
 
-
 export const weatherDayDatasType = PropTypes.shape({
     day : PropTypes.instanceOf(Date).isRequired,
     shortDate: PropTypes.string.isRequired,

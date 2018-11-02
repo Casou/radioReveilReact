@@ -11,19 +11,3 @@ export const WEATHER_API_URL = 'http://api.openweathermap.org/data/2.5/forecast'
 export const WEATHER_API_KEY = '4c970dd9b513b67c4225c0aa1ba0acb5';
 // export const WEATHER_API_LILLE_ID = 6454414;
 export const WEATHER_API_FACHES_ID = 6614164;
-
-
-const SECTION_HEADER_HEIGHT_PX = '40';
-const SECTION_FOOTER_HEIGHT_PX = '80';
-const SECTION_CLOCK_HEIGHT_PERSCENT = '50';
-const SECTION_WEATHER_HEIGHT_PERSCENT = '50';
-
-const SECTION_ENUM = Object.freeze({
-    "clock" : SECTION_CLOCK_HEIGHT_PERSCENT,
-    "weather" : SECTION_WEATHER_HEIGHT_PERSCENT
-});
-
-export const getSectionHeight = (sectionId) => {
-    const screenHeight = document.body.offsetHeight;
-    return (screenHeight - SECTION_HEADER_HEIGHT_PX - SECTION_FOOTER_HEIGHT_PX) * SECTION_ENUM[sectionId] / 100;
-};
