@@ -2,13 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {weatherDayDatasType} from "../propTypes/OpenWeatherMapJsonType";
 import cn from 'classnames';
+import WeatherIcon from "../components/WeatherIcon";
 
 const WeatherTable = (props) => {
-
-    const getWeatherIcon = (weather) => {
-        const iconName = weather.icon.replace("n", "d");
-        return require(`../../../public/images/weather/white/${iconName}.png`);
-    };
 
     const collapsed = false;
 
@@ -30,11 +26,11 @@ const WeatherTable = (props) => {
             <tbody>
                 <tr className={"weatherTable__day"}>
                     <th className={"weatherTable__main_hour"}>{ firstDayData.shortDate }</th>
-                    <td className={"weatherTable__main_hour"}><img src={ getWeatherIcon(firstDayData.data[0].weather[0]) } /></td>
-                    <td className={"weatherTable__main_hour"}><img src={ getWeatherIcon(firstDayData.data[0].weather[0]) } /></td>
-                    <td className={"weatherTable__optional_hour"}><img src={ getWeatherIcon(firstDayData.data[0].weather[0]) } /></td>
-                    <td className={"weatherTable__main_hour"}>1</td>
-                    <td className={"weatherTable__optional_hour"}>1</td>
+                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={firstDayData.data} hour={9} /></td>
+                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={firstDayData.data} hour={12} /></td>
+                    <td className={"weatherTable__optional_hour"}><WeatherIcon dayData={firstDayData.data} hour={15} /></td>
+                    <td className={"weatherTable__main_hour"}><WeatherIcon dayData={firstDayData.data} hour={18} /></td>
+                    <td className={"weatherTable__optional_hour"}><WeatherIcon dayData={firstDayData.data} hour={21} /></td>
                 </tr>
                 <tr className={"weatherTable__day"}>
                     <th className={"weatherTable__main_hour"}>{ secondDayData.shortDate }</th>

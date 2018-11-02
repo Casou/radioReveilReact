@@ -1,4 +1,4 @@
-import {formatShortDate, parseOpenWeatherDate} from "../../../common/util/date";
+import {mixWeatherDatas, reduceWeatherDatas} from "../util/WeatherUtil";
 
 export const weatherDatas = (stateWeather = {}, action) => {
     switch (action.type) {
@@ -9,28 +9,17 @@ export const weatherDatas = (stateWeather = {}, action) => {
     }
 };
 
-const updateWeatherDatasAndMapDay = (weatherDatas) => {
-    const reducedData = weatherDatas.list.reduce((accumulator, currentValue) => {
-        const currentDataDay = parseOpenWeatherDate(currentValue.dt);
-        currentDataDay.setHours(0);
-        currentDataDay.setMinutes(0);
-        currentDataDay.setSeconds(0);
+const updateWeatherDatasAndMapDay = (newWeatherJsonDatas) => {
+    const newWeatherDatas = reduceWeatherDatas(newWeatherJsonDatas);
+    const oldWeatherDatas = purgeWeatherDatas(JSON.parse(localStorage.getItem("weatherDatas")) || []);
+    const mixedWeatherDatas = mixWeatherDatas(oldWeatherDatas, newWeatherDatas);
+    localStorage.setItem("weatherDatas", JSON.stringify(mixedWeatherDatas));
 
-        const dayDataList = accumulator[currentDataDay] || { day : currentDataDay, data : [] };
-        dayDataList.shortDate = formatShortDate(currentDataDay);
-        dayDataList.data.push(mapWeatherData(currentValue));
-        accumulator[currentDataDay] = dayDataList;
-
-        return accumulator;
-    }, {});
-
-    return Object.values(reducedData);
+    return mixedWeatherDatas;
 };
 
-const mapWeatherData = (jsonData) => {
-    const weatherData = { ...jsonData };
-    const date = parseOpenWeatherDate(weatherData.dt);
-    weatherData.shortDate = formatShortDate(date);
-    weatherData.hour = date.getHours();
-    return weatherData;
+const purgeWeatherDatas = (weatherDatas) => {
+    const minimumDate = new Date();
+    minimumDate.setDate(minimumDate.getDate() - 7);
+    return weatherDatas.filter(data => data.day > minimumDate);
 };
