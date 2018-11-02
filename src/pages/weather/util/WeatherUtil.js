@@ -17,17 +17,21 @@ export const reduceWeatherDatas = (newWeatherDatas) => {
 };
 
 export const mixWeatherDatas = (oldWeatherDatas, newWeatherDatas) => {
+    const mixedDatas = [...oldWeatherDatas];
     newWeatherDatas.forEach((newData, index) => {
-        const oldDataList = oldWeatherDatas.find(oldData => oldData.day === newData.day);
+        const oldDataList = oldWeatherDatas.find(oldData => {
+            return oldData.day.getTime() === newData.day.getTime();
+        });
         if (!oldDataList) {
-            oldWeatherDatas.push(newData);
+            mixedDatas.push(newData);
         } else {
-            oldDataList.data = oldDataList.data.map(oldDataHour => weatherDatas.data.find(newDataHour => newDataHour.dt === oldDataHour.dt) || oldDataHour);
-            oldWeatherDatas[index] = oldDataList;
+            oldDataList.data = oldDataList.data.map(oldDataHour =>
+                newData.data.find(newDataHour => newDataHour.dt === oldDataHour.dt) || oldDataHour);
+            mixedDatas[index] = oldDataList;
         }
     });
 
-    return oldWeatherDatas;
+    return mixedDatas;
 };
 
 

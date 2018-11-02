@@ -1,4 +1,15 @@
+#weather_retrieveTime {
+  font-family : Arial, serif;
+  font-size : 15px;
+  height : 20px;
+  opacity : 0.6;
+}
+
 #weather {
+  #weather_data {
+    height : calc(100% - 20px);
+  }
+
   .loading {
     display: inline-block;
     height: 100%;

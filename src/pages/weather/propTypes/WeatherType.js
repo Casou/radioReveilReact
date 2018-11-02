@@ -20,7 +20,7 @@ export const openWeatherMapDataType = PropTypes.shape({
     ).isRequired,
 });
 
-export const openWeatherMapJsonType = PropTypes.shape({
+export const openWeatherJsonType = PropTypes.shape({
     cod : PropTypes.string.isRequired,
     city : PropTypes.shape({
         id : PropTypes.number.isRequired,
@@ -33,4 +33,9 @@ export const weatherDayDatasType = PropTypes.shape({
     day : PropTypes.instanceOf(Date).isRequired,
     shortDate: PropTypes.string.isRequired,
     data : PropTypes.arrayOf(openWeatherMapDataType)
+});
+
+export const storeWeatherType = PropTypes.shape({
+    lastRetrieveTime : PropTypes.instanceOf(Date),
+    dataList: PropTypes.arrayOf(weatherDayDatasType)
 });

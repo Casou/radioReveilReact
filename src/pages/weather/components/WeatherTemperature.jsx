@@ -1,5 +1,5 @@
 import React from 'react';
-import {openWeatherMapDataType} from "../propTypes/OpenWeatherMapJsonType";
+import {openWeatherMapDataType} from "../propTypes/WeatherType";
 import cn from 'classnames';
 
 const WeatherTemperature = ({ hourData }) => {
@@ -15,7 +15,7 @@ const WeatherTemperature = ({ hourData }) => {
 
     return (
         <span className={ cn("weatherIcon_temperature", temperature && getTemperatureClass(temperature)) }>
-            { temperature && temperature + "°" }
+            { (temperature || temperature === 0) && temperature + "°" }
         </span>
     );
 };

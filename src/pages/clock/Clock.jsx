@@ -14,7 +14,7 @@ class Clock extends React.Component {
         };
 
         this.incrementTime = this.incrementTime.bind(this);
-        this.interval = setInterval(this.incrementTime, 1000);
+        setInterval(this.incrementTime, 1000);
     }
 
     formatDate(date) {

@@ -3,6 +3,8 @@ import {WEATHER_API_FACHES_ID, WEATHER_API_KEY, WEATHER_API_URL} from "../../../
 export default {
 
     getWeatherData: () => (dispatch, getState) => {
+        console.debug(">> ACTION : GetWeatherData", new Date().toLocaleString());
+
         const params = {
             APPID : WEATHER_API_KEY,
             id : WEATHER_API_FACHES_ID,

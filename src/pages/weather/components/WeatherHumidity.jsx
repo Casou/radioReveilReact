@@ -1,5 +1,5 @@
 import React from 'react';
-import {openWeatherMapDataType} from "../propTypes/OpenWeatherMapJsonType";
+import {openWeatherMapDataType} from "../propTypes/WeatherType";
 import cn from 'classnames';
 
 const WeatherHumidity = ({ hourData }) => {

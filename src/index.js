@@ -6,9 +6,10 @@ import thunk from "redux-thunk";
 import {composeWithDevTools} from "redux-devtools-extension";
 import App from "./App";
 import reducers from "./reducers";
+import {getWeatherDataFromStorage} from "./pages/weather/reducers/WeatherDataReducer";
 
 const initialStore = {
-    weatherDatas : []
+    weatherDatas : getWeatherDataFromStorage()
 };
 
 const store = createStore(reducers, initialStore,

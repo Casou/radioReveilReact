@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {openWeatherMapDataType} from "../propTypes/OpenWeatherMapJsonType";
+import {openWeatherMapDataType} from "../propTypes/WeatherType";
 import questionIcon from "images/weather/question.png";
 import cn from "classnames";
 import {parseOpenWeatherDate} from "../../../common/util/date";
