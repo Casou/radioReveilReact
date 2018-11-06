@@ -1,6 +1,5 @@
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 const modeIndex = process.argv.findIndex(arg => arg === "--mode");
 const env = modeIndex < 0 || process.argv.length <= (modeIndex) ? "development" : process.argv[modeIndex + 1];
@@ -113,10 +112,6 @@ module.exports = {
             'process.env': {
                 'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
             }
-        }),
-        new HtmlWebPackPlugin({
-            template: "./src/index.html",
-            filename: "./index.html"
         })
     ]
 };

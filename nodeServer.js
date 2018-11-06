@@ -9,6 +9,7 @@ const path = require('path');
 
 const DEFAULT_MP3_FOLDER = "src/public/musiques/default_songs";
 const DEFAULT_MP3_FOLDER_ABSOLUTE = __dirname + "/" + DEFAULT_MP3_FOLDER;
+const EXPORT_MP3_FOLDER = "musiques/default_songs";
 let DEFAULT_MP3_FILES = [];
 
 
@@ -26,7 +27,7 @@ function cacheMp3Files() {
             fs.rename(filePath, encodeSongPath(filePath), function(err) {
                 if ( err ) console.log('ERROR: ' + err);
             });
-            DEFAULT_MP3_FILES.push({ file : encodeSongPath(filePath) });
+            DEFAULT_MP3_FILES.push({ file : EXPORT_MP3_FOLDER + '/' + encodeSongPath(file) });
         });
         console.log("MP3 files : ", DEFAULT_MP3_FILES);
     });
@@ -37,6 +38,18 @@ function encodeSongPath(path) {
 }
 
 const server = http.createServer(function(request, response) {
+    response.setHeader('Access-Control-Allow-Origin', '*');
+
+    // Request methods you wish to allow
+    response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+
+    // Request headers you wish to allow
+    response.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+    // Set to true if you need the website to include cookies in the requests sent
+    // to the API (e.g. in case you use sessions)
+    response.setHeader('Access-Control-Allow-Credentials', true);
+
     let filePath = '.' + request.url;
     if (filePath == './') {
         filePath = './index.html';
@@ -82,7 +95,7 @@ const server = http.createServer(function(request, response) {
             if (error) {
                 if(error.code === 'ENOENT'){
                     fs.readFile('./404.html', function(error, content) {
-                        response.writeHead(200, { 'Content-Type': contentType });
+                        response.writeHead(404, { 'Content-Type': contentType });
                         response.end(content, 'utf-8');
                     });
                 }
