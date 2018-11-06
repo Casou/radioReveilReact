@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
+const HtmlWebPackPlugin = require("html-webpack-plugin");
 
 module.exports = {
     entry: './src/index.js',
@@ -10,6 +11,15 @@ module.exports = {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
                 use: ['babel-loader']
+            },
+            {
+                test: /\.html$/,
+                use: [
+                    {
+                        loader: "html-loader",
+                        options: { minimize: true }
+                    }
+                ]
             },
             {
                 test: /\.scss$/,
@@ -35,6 +45,15 @@ module.exports = {
                     options: {
                         name: '[name].[ext]',
                         outputPath: 'images/'
+                    }
+                }]
+            },{
+                test: /\.(ogg|mp3|wav|mpe?g)$/i,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                        outputPath: 'musiques/'
                     }
                 }]
             }
@@ -68,13 +87,9 @@ module.exports = {
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
         // new OpenBrowserPlugin({ url: 'http://localhost:8080' })
-    ],
-    devServer: {
-        contentBase: './dist',
-        hot: true,
-        port: 9999,
-        headers: {
-            "Access-Control-Allow-Origin": "*"
-        }
-    }
+        new HtmlWebPackPlugin({
+            template: "./src/index.html",
+            filename: "./index.html"
+        })
+    ]
 };

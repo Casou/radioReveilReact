@@ -11,3 +11,7 @@ export const WEATHER_API_URL = 'http://api.openweathermap.org/data/2.5/forecast'
 export const WEATHER_API_KEY = '4c970dd9b513b67c4225c0aa1ba0acb5';
 // export const WEATHER_API_LILLE_ID = 6454414;
 export const WEATHER_API_FACHES_ID = 6614164;
+
+
+export const REST_API_SERVER = 'http://localhost:8888/';
+export const REST_API_GET_SONGS_URL = 'listDefaultMp3Files.json';
