@@ -8,7 +8,7 @@ import App from "./App";
 import reducers from "./reducers";
 import {getWeatherDataFromStorage} from "./pages/weather/reducers/WeatherDataReducer";
 
-console.info('** Server started in ' + process.env.NODE_ENV + ' mode');
+// console.info('** Server started in ' + process.env.NODE_ENV + ' mode');
 
 const initialStore = {
     weatherDatas : getWeatherDataFromStorage(),

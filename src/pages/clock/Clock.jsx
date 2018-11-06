@@ -14,7 +14,15 @@ class Clock extends React.Component {
         };
 
         this.incrementTime = this.incrementTime.bind(this);
+    }
+
+    componentDidMount() {
         setInterval(this.incrementTime, 1000);
+        this._mounted = true;
+    }
+
+    componentWillUnmount() {
+        this._mounted = false;
     }
 
     formatDate(date) {
@@ -30,6 +38,7 @@ class Clock extends React.Component {
     };
 
     incrementTime() {
+        if (!this._mounted) return;
         this.setState({
             ...this.state,
             date : new Date()

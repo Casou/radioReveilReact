@@ -5,27 +5,20 @@ import {assign} from "lodash";
 import {bindActionCreators} from "redux";
 import cn from 'classnames';
 import RadioActions from "../actions/RadioActions";
-import Playlist from "../metier/Playlist";
+import RadioPlaylist from "../metier/RadioPlaylist";
 import radioIcon from 'images/radio.png';
-import defaultAudio from "musiques/default_songs/Big_Blood_-_01_-_Bah-num.mp3";
 
 class Radio extends React.Component {
 
     constructor(props) {
         super(props);
-        // this.sound = new Audio(props.radioState.flux);
-        this.sound = new Audio(defaultAudio);
-        this.sound.onerror = () => console.log("error");
-        this.sound.onended = () => console.log("ended");
-
-        new Playlist();
+        this.playlist = new RadioPlaylist();
     }
 
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.radioState !== this.props.radioState) {
-            if (nextProps.radioState.status === "play") this.sound.play();
-            else this.sound.pause();
+            this.playlist.toggle(nextProps.radioState.status);
         }
     }
 
