@@ -1,7 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
-const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+
+const modeIndex = process.argv.findIndex(arg => arg === "--mode");
+const env = modeIndex < 0 || process.argv.length <= (modeIndex) ? "development" : process.argv[modeIndex + 1];
+
+// const SRC = path.resolve(__dirname, "src");
 
 module.exports = {
     entry: './src/index.js',
@@ -34,7 +38,13 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: '[name].[ext]',
+                        name (file) {
+                            if (env === 'development') {
+                                return '[path][name].[ext]'
+                            }
+
+                            return '[hash].[ext]'
+                        },
                         outputPath: 'fonts/'
                     }
                 }]
@@ -43,7 +53,13 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: '[name].[ext]',
+                        name (file) {
+                            if (env === 'development') {
+                                return '[path][name].[ext]'
+                            }
+
+                            return '[hash].[ext]'
+                        },
                         outputPath: 'images/'
                     }
                 }]
@@ -52,7 +68,14 @@ module.exports = {
                 use: [{
                     loader: 'file-loader',
                     options: {
-                        name: '[name].[ext]',
+                        name (file) {
+                            if (env === 'development') {
+                                return '[path][name].[ext]';
+                            }
+
+                            return '[hash].[ext]';
+                            // '[path][name].[ext]?[hash]'
+                        },
                         outputPath: 'musiques/'
                     }
                 }]
@@ -77,6 +100,7 @@ module.exports = {
         alias: {
             components: path.resolve(__dirname, 'src/components'),
             images: path.resolve(__dirname, 'src/public/images/'),
+            musiques: path.resolve(__dirname, 'src/public/musiques/')
         }
     },
     output: {
@@ -85,8 +109,11 @@ module.exports = {
         filename: 'bundle.js'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
-        // new OpenBrowserPlugin({ url: 'http://localhost:8080' })
+        new webpack.DefinePlugin({
+            'process.env': {
+                'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+            }
+        }),
         new HtmlWebPackPlugin({
             template: "./src/index.html",
             filename: "./index.html"

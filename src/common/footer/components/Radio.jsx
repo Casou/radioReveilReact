@@ -5,9 +5,9 @@ import {assign} from "lodash";
 import {bindActionCreators} from "redux";
 import cn from 'classnames';
 import RadioActions from "../actions/RadioActions";
-import radioIcon from 'images/radio.png';
 import Playlist from "../metier/Playlist";
-import defaultAudio from "../../../public/musiques/default_songs/Big_Blood_-_01_-_Bah-num.mp3";
+import radioIcon from 'images/radio.png';
+import defaultAudio from "musiques/default_songs/Big_Blood_-_01_-_Bah-num.mp3";
 
 class Radio extends React.Component {
 
