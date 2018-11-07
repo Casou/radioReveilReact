@@ -69,7 +69,7 @@ module.exports = {
                     options: {
                         name (file) {
                             if (env === 'development') {
-                                return '[path][name].[ext]';
+                                return '[name].[ext]';
                             }
 
                             return '[hash].[ext]';

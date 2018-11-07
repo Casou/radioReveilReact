@@ -27,7 +27,10 @@ function cacheMp3Files() {
             fs.rename(filePath, encodeSongPath(filePath), function(err) {
                 if ( err ) console.log('ERROR: ' + err);
             });
-            DEFAULT_MP3_FILES.push({ file : EXPORT_MP3_FOLDER + '/' + encodeSongPath(file) });
+            const encodedName = encodeSongPath(file);
+            DEFAULT_MP3_FILES.push({
+                name : encodedName,
+                path : EXPORT_MP3_FOLDER + '/' + encodedName });
         });
         console.log("MP3 files : ", DEFAULT_MP3_FILES);
     });
@@ -126,7 +129,7 @@ function handleAjax(requestUrl) {
 
 function listMp3Files() {
     const result = JSON.stringify({ files : DEFAULT_MP3_FILES });
-    cacheMp3Files();
+    // cacheMp3Files();
     return result;
 }
 
