@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {weatherDayDatasType} from "../propTypes/WeatherType";
 import cn from 'classnames';
 import WeatherItem from "../components/WeatherItem";
+import WeatherTableRow from "./WeatherTableRow";
+import {isDateEquals} from "../../../common/util/date";
 
 class WeatherTable extends React.Component {
 
@@ -25,8 +27,9 @@ class WeatherTable extends React.Component {
     render() {
         const { weatherDayDatas } = this.props;
 
-        const firstDayData = weatherDayDatas[0];
-        const secondDayData = weatherDayDatas[1];
+        const dayIndex = weatherDayDatas.findIndex(dayData => isDateEquals(dayData.day, new Date()));
+        const firstDayData = weatherDayDatas[dayIndex];
+        const secondDayData = weatherDayDatas[dayIndex + 1];
 
         return (
             <table id={"weatherTable"} className={ cn({"collapsed" : this.state.collapsed}) }
@@ -42,22 +45,8 @@ class WeatherTable extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr className={"weatherTable__day"}>
-                        <th className={"weatherTable__main_hour"}>{ firstDayData.shortDate }</th>
-                        <td className={"weatherTable__main_hour"}><WeatherItem dayData={firstDayData.data} hour={9} /></td>
-                        <td className={"weatherTable__main_hour"}><WeatherItem dayData={firstDayData.data} hour={12} /></td>
-                        <td className={"weatherTable__optional_hour"}><WeatherItem dayData={firstDayData.data} hour={15} /></td>
-                        <td className={"weatherTable__main_hour"}><WeatherItem dayData={firstDayData.data} hour={18} /></td>
-                        <td className={"weatherTable__optional_hour"}><WeatherItem dayData={firstDayData.data} hour={21} /></td>
-                    </tr>
-                    <tr className={"weatherTable__day"}>
-                        <th className={"weatherTable__main_hour"}>{ secondDayData.shortDate }</th>
-                        <td className={"weatherTable__main_hour"}><WeatherItem dayData={secondDayData.data} hour={9} /></td>
-                        <td className={"weatherTable__main_hour"}><WeatherItem dayData={secondDayData.data} hour={12} /></td>
-                        <td className={"weatherTable__optional_hour"}><WeatherItem dayData={secondDayData.data} hour={15} /></td>
-                        <td className={"weatherTable__main_hour"}><WeatherItem dayData={secondDayData.data} hour={18} /></td>
-                        <td className={"weatherTable__optional_hour"}><WeatherItem dayData={secondDayData.data} hour={21} /></td>
-                    </tr>
+                    <WeatherTableRow dayData={ firstDayData } />
+                    <WeatherTableRow dayData={ secondDayData } />
                 </tbody>
             </table>
         );
